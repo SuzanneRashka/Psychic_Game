@@ -13,30 +13,42 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body style="margin:10% 20%;">
-    <h1>The Psychic Game</h1>
-    <h3>Guess what letter I'm thinking of...</h3>
-    <div>
-        <p>Computers Guess:
-            <a id=compGuess></a>
-        </p>
-        <p>Users Guess:
-            <a id="userGuess"></a>
-        </p>
+<body class="container">
+    <div class="row">
+
+        <div class="col-6-md">
+            <h1>The Psychic Game</h1>
+            <h3>Guess what letter I'm thinking of...</h3>
+            <p>Computers Guess:
+                <a id=compGuess></a>
+            </p>
+            <p>Users Guess:
+                <a id="userGuess"></a>
+            </p>
+        </div>
+        <div>
+            <br>
+            <h2>Wins:
+                <a id="win"></a>
+            </h2>
+            <h2>Losses:
+                <a id="lose"></a>
+            </h2>
+            <h2>Guesses Left:
+                <a id="remaining"></a>
+            </h2>
+            <h2>Your Guesses so far:
+                <h2>
+                    <a id="guessed"></a>
+                </h2>
+            </h2>
+        </div>
     </div>
-    <div>
-        <h2>Wins:
-            <a id="win"></a>
-        </h2>
-        <h2>Losses:
-            <a id="lose"></a>
-        </h2>
-        <h2>Guesses Left:
-            <a id="remaining"></a>
-        </h2>
-        <h2>Your Guesses so far:
-            <a id="guessed"></a>
-        </h2>
+    <div class="col-6-md">
+        <img id="img" src="https://media1.giphy.com/media/lELRD773cY7Sg/giphy.gif" alt="Steve Martin">
+        <button id="hide-img" type="button" class="btn btn-info">
+            <a>Hide Steve</a>
+        </button>
     </div>
 
     <script type="text/javascript" src="assets/javascript/game.js"></script>

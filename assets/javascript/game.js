@@ -7,27 +7,74 @@
 // When the player wins, increase the Wins counter and start the game over again (without refreshing the page).
 // When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins).
 
-// id's = userGuess, compGuess, win, lose, remaining, guessed.
 
-// 1) user picks a letter ✔
-// 2) computer picks a letter
+// 1) ✔ user picks a letter
+// 2) ✔ computer picks a letter
 // 3) letters compared
-// 4) user letter stored
-// 5) repeats only 10 times. 
+// 4) user letter stored   array.push(from user);
+// 5) repeats only 10 times.
+// 6) wins counter
+// 7) loss counter
 
+var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+  'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+];
+var wins = 0;
+var losses = 0;
+var guesses = 10;
 var guessed = [];
-var userGuess = document.getElementById("userGuess");
 
-// 1) get the keystrokes console logging
+// id's = remaining, guessed.
 
+//Computer Choice
+var compNumber = [Math.floor(Math.random() * alphabet.length)];
+// empty string to hold letter
+var compLetter = " ";
+// converted number to letter.
+compLetter = alphabet[compNumber];
+
+//User Choice
 document.onkeyup = function (event) {
-    userGuess.textContent = event.key;
-    console.log("This is your guess = " + userGuess + event.key);
-};
-// 2) set up computers random guess
-var compGuess = compChoices[Math.floor(Math.random() * arr.length)];
-// 3)
 
+  var userGuess = event.key
 
+  document.getElementById("userGuess").textContent = userGuess;
+  document.getElementById("compGuess").textContent = compLetter;
+  document.getElementById("win").textContent = wins;
+  document.getElementById("lose").textContent = losses;
+  document.getElementById("remaining").textContent = guesses;
+  document.getElementById("guessed").textContent = guessed;
 
-// document.getElementById("win").innerHTML = win;
+  // if user and computer guess same letter
+  if (userGuess === compLetter) {
+    wins++;
+    alert("Congratulations! You've read the computers mind!");
+    guesses = 10;
+    guessed = [];
+    alert("press any key to continue and play another round :)");
+    compLetter;
+
+  } else if (guesses === 0) {
+    losses++;
+    guessed = [];
+    guesses = 10;
+    // start game over
+    alert("You lost! Start over!");
+    compLetter;
+
+  } else if (userGuess !== compLetter) {
+    guesses--;
+    guessed.push(userGuess);
+
+  }
+
+}
+
+document.getElementById("hide-img").on("click", function () {
+  document.getElementById("img").style.visibility = "hidden";
+})
+// Problems....
+// 1) Command still first key press! Seriously! Stop following me!@!@!#@#!
+//      String.fromCharCode(event.keyCode).toLowerCase(); - not solving Meta
+
+// 3) Computers guess only changing on refresh
