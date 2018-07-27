@@ -14,25 +14,24 @@ var wins = 0;
 var losses = 0;
 var guesses = 10;
 var guessed = [];
-
+var compLetter = " ";
 // id's = remaining, guessed.
 
-//Computer Choice
-var compNumber = [Math.floor(Math.random() * alphabet.length)];
-// empty string to hold letter
-var compLetter = " ";
-// converted number to letter.
-compLetter = alphabet[compNumber];
+//Computer 
+var compChoice = function () {
+  var compNumber = [Math.floor(Math.random() * alphabet.length)];
+  // empty string to hold letter
+
+  // converted number to letter.
+  compLetter = alphabet[compNumber];
+}
+
 
 document.onkeyup = function (event) {
   //User Choice holder
   var userGuess = event.key.toLowerCase();
   // prints to document
-  document.getElementById("userGuess").textContent = " " + userGuess;
-  document.getElementById("win").textContent = wins;
-  document.getElementById("lose").textContent = losses;
-  document.getElementById("remaining").textContent = guesses;
-  document.getElementById("guessed").textContent = guessed;
+
 
   // if user and computer guess same letter
   if (userGuess === compLetter) {
@@ -42,7 +41,8 @@ document.onkeyup = function (event) {
     guesses = 10;
     guessed = [];
     alert("Press any key to continue and play another round :)"); // start game over
-    compLetter;
+    document.getElementById("win").textContent = wins;
+    compChoice();
 
     // if 10 guesses are used
   } else if (guesses === 0) {
@@ -51,7 +51,8 @@ document.onkeyup = function (event) {
     guessed = [];
     guesses = 10;
     alert("You lost! Start over!"); // start game over
-    compLetter;
+    document.getElementById("lose").textContent = losses;
+    compChoice();
 
     // continue game play until win or no more tries
   } else if (userGuess !== compLetter) {
@@ -59,7 +60,9 @@ document.onkeyup = function (event) {
     guesses--;
     guessed.push(userGuess);
   }
-
+  document.getElementById("userGuess").textContent = " " + userGuess;
+  document.getElementById("remaining").textContent = guesses;
+  document.getElementById("guessed").textContent = guessed;
   console.log("Computer Choice is " + compLetter);
 
 }
@@ -81,7 +84,7 @@ toggle.addEventListener("click", function () {
 // Problems....
 
 // 1) Command still first key press! Seriously! Stop following me!@!@!#@#!
-// 2) Meta problem // String.fromCharCode(event.keyCode).toLowerCase(); - not solving Meta
-// 3) Computers guess only changing on refresh
-// 4) Computer choice for every user key choice
-// 5) Keystroke needed to restart board
+//    Meta problem // String.fromCharCode(event.keyCode).toLowerCase(); - not solving Meta
+// 2) Computers guess only changing on refresh
+// 3) Computer choice for every user key choice
+// 4) Keystroke needed to restart board
