@@ -1,0 +1,28 @@
+/* html {
+    background: url(images/psychedelic-spiral-background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 99;
+} */
+
+html {
+    width: 100%;
+    background-color: purple;
+    margin: 0 20%;
+}
+
+div {
+    background-color: plum;
+    padding: 10px 10px;
+    width: 100%;
+}
+
+#content {
+    display: block;
+}
+
+#content.hide {
+    display: none;
+}

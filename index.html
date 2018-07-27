@@ -7,53 +7,66 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>The Psychic Game</title>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js " integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy "
+        crossorigin="anonymous "></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="container">
-    <div class="row">
+<body>
+    <div style="margin-top:10%;">
+        <div class=" row d-flex justify-content-center ">
+            <img id="content" class="img-vis" src="https://media1.giphy.com/media/lELRD773cY7Sg/giphy.gif " alt="Steve Martin ">
+        </div>
+        <div class="row d-flex justify-content-center ">
+            <button id="toggle" type="button" class="btn btn-info">
+                <a>Hide Steve</a>
+            </button>
+        </div>
+    </div>
 
-        <div class="col-6-md">
+    <div class="row">
+        <div>
             <h1>The Psychic Game</h1>
             <h3>Guess what letter I'm thinking of...</h3>
+        </div>
+    </div>
+
+    <div>
+        <div>
             <p>Computers Guess:
                 <a id=compGuess></a>
             </p>
-            <p>Users Guess:
+            <h1>Your Guess:
                 <a id="userGuess"></a>
-            </p>
+            </h1>
         </div>
         <div>
             <br>
-            <h2>Wins:
+            <h2 class="d-flex justify-content-around">Wins:
                 <a id="win"></a>
             </h2>
-            <h2>Losses:
+            <h2 class="d-flex justify-content-around">Losses:
                 <a id="lose"></a>
             </h2>
-            <h2>Guesses Left:
+            <h2 class="d-flex justify-content-around">Guesses Left:
                 <a id="remaining"></a>
             </h2>
-            <h2>Your Guesses so far:
-                <h2>
-                    <a id="guessed"></a>
+        </div>
+        <div>
+            <h2 class="row d-flex justify-content-center">Your Guesses so far:
+                <h2 class="d-flex justify-content-center">
+                    <a id="guessed" class="row"></a>
                 </h2>
             </h2>
         </div>
     </div>
-    <div class="col-6-md">
-        <img id="img" src="https://media1.giphy.com/media/lELRD773cY7Sg/giphy.gif" alt="Steve Martin">
-        <button id="hide-img" type="button" class="btn btn-info">
-            <a>Hide Steve</a>
-        </button>
-    </div>
 
-    <script type="text/javascript" src="assets/javascript/game.js"></script>
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script> -->
+
+    <script type="text/javascript " src="assets/javascript/game.js "></script>
+
 </body>
 
 </html>

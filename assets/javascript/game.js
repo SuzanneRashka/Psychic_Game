@@ -36,7 +36,7 @@ compLetter = alphabet[compNumber];
 //User Choice
 document.onkeyup = function (event) {
 
-  var userGuess = event.key
+  var userGuess = event.key.toLowerCase();
 
   document.getElementById("userGuess").textContent = userGuess;
   document.getElementById("compGuess").textContent = compLetter;
@@ -65,16 +65,24 @@ document.onkeyup = function (event) {
   } else if (userGuess !== compLetter) {
     guesses--;
     guessed.push(userGuess);
-
   }
-
 }
 
-document.getElementById("hide-img").on("click", function () {
-  document.getElementById("img").style.visibility = "hidden";
-})
+//gif
+var toggle = document.getElementById("toggle");
+// button
+var content = document.getElementById("content");
+
+toggle.addEventListener("click", function () {
+  if (content.classList.toggle("hide")) {
+    toggle.innerHTML = 'Show Steve';
+  } else {
+    toggle.innerHTML = 'Hide Steve';
+  }
+
+});
+
 // Problems....
 // 1) Command still first key press! Seriously! Stop following me!@!@!#@#!
-//      String.fromCharCode(event.keyCode).toLowerCase(); - not solving Meta
-
+// 2) String.fromCharCode(event.keyCode).toLowerCase(); - not solving Meta
 // 3) Computers guess only changing on refresh
